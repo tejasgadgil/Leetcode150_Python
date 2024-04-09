@@ -1,0 +1,32 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        # Iterate through the digits array from right to left
+        for i in range(len(digits) - 1, -1, -1):
+            # If the current digit is less than 9, simply increment it by 1
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            # If the current digit is 9, set it to 0 and continue to the next digit
+            digits[i] = 0
+        
+        # If all digits are 9, insert 1 at the beginning of the array
+        digits.insert(0, 1)
+        return digits
+
+# This solution effectively handles the case where the array contains all 9s and requires adding one extra digit. 
+# It iterates through the digits array once, leading to a time complexity of O(n), where n is the number of digits in the array. 
+# The space complexity is also O(n) in the worst case when a new digit needs to be inserted at the beginning of the array.
+
+        # carry = True
+        # i = len(digits) - 1
+        # while carry == True :
+        #     if i < 0 :
+        #         digits.insert(0,1)
+        #         return digits
+        #     elif digits[i] + 1 == 10 :
+        #         digits[i] = 0
+        #     else :
+        #         carry = False
+        #         digits[i] += 1
+        #     i-=1 
+        # return digits
